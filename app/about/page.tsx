@@ -10,8 +10,8 @@ export default function About() {
     {
       name: "Gabriel Torres",
       role: "Founder & Lead Engineer",
-      description: "Expert in CAD design and 3D printing with over 5 years of experience in precision manufacturing.",
-      image: "/professional-engineer-portrait.png",
+      description: "Expert in CAD design and 3D printing with over 2 years of experience in precision manufacturing.",
+      image: "/professional-cad-workstation-3d-modeling-software.jpg",
     },
   ]
 
@@ -231,7 +231,7 @@ export default function About() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-            <p>&copy; 2024 Gt Print Lab. All rights reserved.</p>
+            <p>&copy; 2025 Gt Print Lab. All rights reserved.</p>
           </div>
         </div>
       </footer>
