@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Calendar, Tag, Home, ChevronRight } from "lucide-react";
+import { ExternalLink, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Image } from "@/components/image";
 
 export default function Portfolio() {
   const projects = [
@@ -94,13 +94,6 @@ export default function Portfolio() {
             various industries.
           </p>
         </div>
-
-        {/* Curved divider with darker tone */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1200 120" className="w-full h-20 fill-muted/50">
-            <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z"></path>
-          </svg>
-        </div>
       </section>
 
       {/* Portfolio Grid */}
@@ -112,13 +105,16 @@ export default function Portfolio() {
                 key={project.id}
                 className="overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300 group"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fallback="/placeholder.svg"
+                  aspectRatio={4 / 3}
+                  fit="cover"
+                  className="group-hover:scale-105 transition-transform duration-500"
+                  lazy={false}
+                  priority={project.id <= 2}
+                />
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-4">
                     <span className="inline-flex items-center gap-1 text-sm text-muted-foreground">

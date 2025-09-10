@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Image } from "@/components/image";
 import {
   ArrowLeft,
   Printer,
@@ -13,6 +14,7 @@ import {
   Award,
 } from "lucide-react";
 import Link from "next/link";
+
 export default function Services() {
   const services = [
     {
@@ -161,13 +163,17 @@ export default function Services() {
                     index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
                   }
                 >
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
-                    <img
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fallback="/placeholder.svg"
+                    aspectRatio={4 / 3}
+                    fit="cover"
+                    rounded="lg"
+                    shadow="sm"
+                    priority={index === 0}
+                    lazy={index > 0}
+                  />
                 </div>
               </div>
             ))}
