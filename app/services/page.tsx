@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/image";
+import Link from "next/link";
+import CTA from "@/components/CTA/CTA";
 import {
   ArrowLeft,
   Printer,
@@ -12,8 +14,8 @@ import {
   Clock,
   Shield,
   Award,
+  Quote,
 } from "lucide-react";
-import Link from "next/link";
 
 export default function Services() {
   const services = [
@@ -21,14 +23,13 @@ export default function Services() {
       icon: Printer,
       title: "3D Printing Services",
       description:
-        "High-quality additive manufacturing using state-of-the-art FDM and resin printing technologies.",
+        "High-quality additive manufacturing using state-of-the-art FDM technologies.",
       image: "/3d-printed-mechanical-prototype-with-gears-and-mov.jpg",
       features: [
         "Rapid prototyping and production",
-        "Multiple material options (PLA, ABS, PETG, Resin)",
+        "Multiple material options (PLA, ABS, ASA, PETG, Nylon)",
         "Layer heights from 0.1mm to 0.3mm",
-        "Build volumes up to 300x300x400mm",
-        "Post-processing and finishing services",
+        "Build volumes up to 256x256x256mm",
         "Quality inspection and testing",
       ],
       pricing: "Starting from $15/hour + materials",
@@ -53,10 +54,9 @@ export default function Services() {
       icon: Cog,
       title: "Custom Solutions",
       description:
-        "Tailored manufacturing solutions including jigs, fixtures, and specialized tooling.",
+        "Tailored manufacturing solutions including mechanisms, outdated parts and specialized tooling",
       image: "/3d-printed-custom-tools-and-jigs-manufacturing.jpg",
       features: [
-        "Manufacturing jigs and fixtures",
         "Custom replacement parts",
         "Prototyping and testing",
         "Small batch production",
@@ -80,14 +80,14 @@ export default function Services() {
       title: "Design & Development",
       description:
         "Our team creates or refines CAD models, optimizing them for 3D printing and functionality.",
-      duration: "2-5 days",
+      duration: "2-7 days",
     },
     {
       step: "03",
       title: "Production & Quality Control",
       description:
         "High-precision 3D printing with continuous monitoring and quality checks throughout the process.",
-      duration: "1-7 days",
+      duration: "1-3 days",
     },
     {
       step: "04",
@@ -101,15 +101,12 @@ export default function Services() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-card/30 to-background overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <section className="relative py-15 bg-gradient-to-br from-card/30 to-background overflow-hidden">
+        <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <Link
             href="/"
             className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 group"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Link>
+          ></Link>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
             Our Services
           </h1>
@@ -121,7 +118,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-background">
+      <section className="py-5 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="space-y-16">
             {services.map((service, index) => (
@@ -154,9 +151,6 @@ export default function Services() {
                       {service.pricing}
                     </span>
                   </div>
-                  <Button size="lg" className="rounded-full">
-                    Get Quote
-                  </Button>
                 </div>
                 <div
                   className={
@@ -223,89 +217,12 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-24 bg-background">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Why Choose Gt Print Lab
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience the difference of working with dedicated professionals
-              who care about your success
-            </p>
-          </div>
+      {/*CTA Section*/}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Fast Turnaround</h3>
-              <p className="text-muted-foreground text-sm">
-                Quick delivery without compromising on quality
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Eye className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">
-                Attention to Detail
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                Meticulous care in every aspect of production
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Guarantee</h3>
-              <p className="text-muted-foreground text-sm">
-                100% satisfaction guarantee on all projects
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Expert Team</h3>
-              <p className="text-muted-foreground text-sm">
-                Years of experience in 3D printing and design
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-card">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-card-foreground mb-6 text-balance">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty">
-            Contact us today for a free consultation and quote on your 3D
-            printing or CAD design needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="rounded-full px-8 py-6 text-lg">
-              Get Free Quote
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full px-8 py-6 text-lg bg-transparent"
-            >
-              <Link href="/portfolio">View Portfolio</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTA
+        title="Ready to Start Your Project?"
+        text="Contact us today for a free consultation and quote on your 3D printing or CAD design needs."
+      />
     </>
   );
 }

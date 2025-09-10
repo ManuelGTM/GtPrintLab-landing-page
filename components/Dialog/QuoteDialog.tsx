@@ -1,3 +1,4 @@
+"use client";
 import {
   Dialog,
   DialogContent,
@@ -53,7 +54,7 @@ export function QuoteDialog() {
       form.reset();
       setUploadedFile(null);
       setSubmitMessage(
-        "Quote request submitted successfully! We'll get back to you soon."
+        "Quote request submitted successfully! We'll get back to you soon.",
       );
 
       // Close dialog after success

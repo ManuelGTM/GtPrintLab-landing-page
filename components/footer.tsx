@@ -19,7 +19,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-          <p>&copy; 2024 Gt Print Lab. All rights reserved.</p>
+          <p>&copy; 2025 Gt Print Lab. All rights reserved.</p>
         </div>
       </div>
     </footer>

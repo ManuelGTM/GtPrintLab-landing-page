@@ -24,7 +24,7 @@ export function Navlink({
         "block transition-all sm:mb-3 md:mb-0 duration-200 text-base rounded-lg hover:underline",
         isActive(href)
           ? "text-primary font-semibold lg:underline"
-          : "text-muted-foreground hover:text-foreground"
+          : "text-muted-foreground hover:text-foreground",
       )}
       onClick={() => setIsMobileMenuOpen(false)}
     >
