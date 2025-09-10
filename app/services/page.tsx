@@ -1,7 +1,21 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, Printer, Box, Cog, Zap, Eye, CheckCircle, Clock, Shield, Award } from "lucide-react"
+import {
+  ArrowLeft,
+  Printer,
+  Box,
+  Cog,
+  Zap,
+  Eye,
+  CheckCircle,
+  Clock,
+  Shield,
+  Award,
+  Home,
+  ChevronRight,
+} from "lucide-react"
 import Link from "next/link"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Services() {
   const services = [
@@ -92,16 +106,34 @@ export default function Services() {
               <Link href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
                 About
               </Link>
-              <Link href="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
-                Portfolio
-              </Link>
               <Link href="/services" className="text-foreground font-medium">
                 Services
+              </Link>
+              <Link href="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
+                Portfolio
               </Link>
               <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
                 Contact
               </Link>
+              <ThemeToggle />
             </div>
+            {/* Mobile theme toggle */}
+            <div className="md:hidden">
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-muted/30 border-b border-border">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8 py-3">
+            <nav className="flex items-center space-x-2 text-sm">
+              <Link href="/" className="flex items-center text-muted-foreground hover:text-foreground mb-8 group">
+                <Home className="h-4 w-4 mr-1" />
+                Home
+              </Link>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <span className="text-foreground font-medium">Services</span>
+            </nav>
           </div>
         </div>
       </nav>

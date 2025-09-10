@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight, Printer, Box, Zap, Eye, Cog, Menu, Send, X, Upload } from "lucide-react"
+import { ArrowRight, Printer, Box, Zap, Eye, Cog, Menu, Send, X, Upload, ChevronDown } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
 import { translations, type Language, getTranslation } from "@/lib/translations"
+import Link from "next/link"
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en")
@@ -24,6 +25,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   useEffect(() => {
     const browserLang = navigator.language.split("-")[0] as Language
@@ -141,18 +143,18 @@ export default function Home() {
               >
                 {t("nav.about")}
               </a>
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm lg:text-base"
               >
                 {t("nav.services")}
-              </a>
-              <a
-                href="#portfolio"
+              </Link>
+              <Link
+                href="/portfolio"
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm lg:text-base"
               >
                 {t("nav.portfolio")}
-              </a>
+              </Link>
               <a
                 href="#contact"
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm lg:text-base"
@@ -181,20 +183,20 @@ export default function Home() {
                 >
                   {t("nav.about")}
                 </a>
-                <a
-                  href="#services"
+                <Link
+                  href="/services"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200 text-base rounded-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {t("nav.services")}
-                </a>
-                <a
-                  href="#portfolio"
+                </Link>
+                <Link
+                  href="/portfolio"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200 text-base rounded-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {t("nav.portfolio")}
-                </a>
+                </Link>
                 <a
                   href="#contact"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200 text-base rounded-lg"
@@ -206,12 +208,37 @@ export default function Home() {
             </div>
           )}
         </div>
+
+        <div className="absolute top-2 right-2 flex gap-1 z-50">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setLanguage("en")}
+            className={`h-6 px-2 text-xs ${language === "en" ? "bg-muted text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            EN
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setLanguage("es")}
+            className={`h-6 px-2 text-xs ${language === "es" ? "bg-muted text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            ES
+          </Button>
+        </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-card/50 to-background"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="mb-4 sm:mb-6">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm sm:text-base font-medium animate-pulse">
+              {t("hero.urgencyOffer")}
+            </div>
+          </div>
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-balance mb-4 sm:mb-6 leading-tight">
             {t("hero.title")}
             <span className="text-foreground block">{t("hero.titleHighlight")}</span>
@@ -219,22 +246,35 @@ export default function Home() {
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 text-pretty max-w-2xl mx-auto px-4">
             {t("hero.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 mb-4">
             <Button
               size="lg"
-              className="rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg group w-full sm:w-auto"
+              onClick={openQuoteModal}
+              className="rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg group w-full sm:w-auto bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <a href="#portfolio">{t("hero.viewPortfolio")}</a>
+              {t("enhancedCTA.primary")}
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg bg-transparent w-full sm:w-auto"
-              onClick={openQuoteModal}
+              className="rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg bg-transparent w-full sm:w-auto border-2 hover:bg-primary/5"
             >
-              {t("hero.getFreeQuote")}
+              <Link href="/portfolio">{t("enhancedCTA.portfolio")}</Link>
             </Button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="text-green-500">✅</span>
+              {t("enhancedCTA.guarantee")}
+            </div>
+            <div className="hidden sm:block w-1 h-1 bg-muted-foreground rounded-full"></div>
+            <div className="flex items-center gap-2">
+              <span>⏰</span>
+              {t("enhancedCTA.urgency")}
+            </div>
           </div>
         </div>
 
@@ -242,6 +282,77 @@ export default function Home() {
           <svg viewBox="0 0 1200 120" className="w-full h-12 sm:h-16 lg:h-20 fill-muted/50">
             <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z"></path>
           </svg>
+        </div>
+      </section>
+
+      {/* Trust Signals Section */}
+      <section className="py-12 sm:py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{t("trustSignals.title")}</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                <span className="text-green-600 dark:text-green-400 text-lg">💰</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.moneyBackGuarantee")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.moneyBackDescription")}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                <span className="text-blue-600 dark:text-blue-400 text-lg">🏆</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.qualityAssurance")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.qualityDescription")}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                <span className="text-purple-600 dark:text-purple-400 text-lg">🔒</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.securePayments")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.secureDescription")}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                <span className="text-orange-600 dark:text-orange-400 text-lg">⚡</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.fastDelivery")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.fastDescription")}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center">
+                <span className="text-teal-600 dark:text-teal-400 text-lg">👨‍💼</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.professionalSupport")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.supportDescription")}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50">
+              <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                <span className="text-red-600 dark:text-red-400 text-lg">🎯</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm">{t("trustSignals.industryExperience")}</div>
+                <div className="text-xs text-muted-foreground">{t("trustSignals.experienceDescription")}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -291,11 +402,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-background">
+      {/* Social Proof Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              {t("socialProof.title")}
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              {t("socialProof.subtitle")}
+            </p>
+          </div>
+
+          {/* Statistics */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">
+                {t("socialProof.projectsCompletedNumber")}
+              </div>
+              <div className="text-sm sm:text-base text-muted-foreground">{t("socialProof.projectsCompleted")}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">
+                {t("socialProof.clientSatisfactionNumber")}
+              </div>
+              <div className="text-sm sm:text-base text-muted-foreground">{t("socialProof.clientSatisfaction")}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">
+                {t("socialProof.yearsExperienceNumber")}
+              </div>
+              <div className="text-sm sm:text-base text-muted-foreground">{t("socialProof.yearsExperience")}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">
+                {t("socialProof.materialsSupportedNumber")}
+              </div>
+              <div className="text-sm sm:text-base text-muted-foreground">{t("socialProof.materialsSupported")}</div>
+            </div>
+          </div>
+
+          {/* Testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="p-6 border-0 shadow-sm">
+              <p className="text-muted-foreground mb-4 text-sm sm:text-base leading-relaxed">
+                "{t("socialProof.testimonial1")}"
+              </p>
+              <div>
+                <div className="font-semibold text-sm sm:text-base">{t("socialProof.testimonial1Author")}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t("socialProof.testimonial1Company")}</div>
+              </div>
+            </Card>
+            <Card className="p-6 border-0 shadow-sm">
+              <p className="text-muted-foreground mb-4 text-sm sm:text-base leading-relaxed">
+                "{t("socialProof.testimonial2")}"
+              </p>
+              <div>
+                <div className="font-semibold text-sm sm:text-base">{t("socialProof.testimonial2Author")}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t("socialProof.testimonial2Company")}</div>
+              </div>
+            </Card>
+            <Card className="p-6 border-0 shadow-sm">
+              <p className="text-muted-foreground mb-4 text-sm sm:text-base leading-relaxed">
+                "{t("socialProof.testimonial3")}"
+              </p>
+              <div>
+                <div className="font-semibold text-sm sm:text-base">{t("socialProof.testimonial3Author")}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t("socialProof.testimonial3Company")}</div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section id="services" className="py-16 sm:py-20 lg:py-24 bg-card">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-card-foreground">
               {t("services.title")}
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">{t("services.subtitle")}</p>
@@ -310,6 +494,22 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                 {t("services.printing.description")}
               </p>
+
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Pricing:</span>
+                  <span className="font-medium">{t("serviceDetails.printing.pricing")}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Turnaround:</span>
+                  <span className="font-medium">{t("serviceDetails.printing.turnaround")}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Materials:</span>
+                  <span className="font-medium">{t("serviceDetails.printing.materials")}</span>
+                </div>
+              </div>
+
               <ul className="text-sm text-muted-foreground space-y-1 sm:space-y-2">
                 <li>• {t("services.printing.rapidPrototyping")}</li>
                 <li>• {t("services.printing.functionalPartsProduction")}</li>
@@ -326,6 +526,22 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                 {t("services.cad.description")}
               </p>
+
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Pricing:</span>
+                  <span className="font-medium">{t("serviceDetails.cad.pricing")}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Turnaround:</span>
+                  <span className="font-medium">{t("serviceDetails.cad.turnaround")}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Software:</span>
+                  <span className="font-medium">{t("serviceDetails.cad.software")}</span>
+                </div>
+              </div>
+
               <ul className="text-sm text-muted-foreground space-y-1 sm:space-y-2">
                 <li>• {t("services.cad.productDesign")}</li>
                 <li>• {t("services.cad.technicalDrawings")}</li>
@@ -341,10 +557,12 @@ export default function Home() {
       <section id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-card-foreground mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-card-foreground mb-4 sm:mb-6 text-balance">
               {t("portfolio.title")}
             </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">{t("portfolio.subtitle")}</p>
+            <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
+              {t("portfolio.subtitle")}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -475,6 +693,9 @@ export default function Home() {
                 <span className="text-xl sm:text-2xl font-bold text-primary">1</span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold mb-2">{t("process.consultation")}</h3>
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-2">
+                {t("process.consultationTime")}
+              </div>
               <p className="text-muted-foreground text-sm">{t("process.consultationDescription")}</p>
             </div>
 
@@ -483,6 +704,9 @@ export default function Home() {
                 <span className="text-xl sm:text-2xl font-bold text-primary">2</span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold mb-2">{t("process.design")}</h3>
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-2">
+                {t("process.designTime")}
+              </div>
               <p className="text-muted-foreground text-sm">{t("process.designDescription")}</p>
             </div>
 
@@ -491,6 +715,9 @@ export default function Home() {
                 <span className="text-xl sm:text-2xl font-bold text-primary">3</span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold mb-2">{t("process.production")}</h3>
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-2">
+                {t("process.productionTime")}
+              </div>
               <p className="text-muted-foreground text-sm">{t("process.productionDescription")}</p>
             </div>
 
@@ -499,8 +726,109 @@ export default function Home() {
                 <span className="text-xl sm:text-2xl font-bold text-primary">4</span>
               </div>
               <h3 className="text-base sm:text-lg font-semibold mb-2">{t("process.delivery")}</h3>
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-2">
+                {t("process.deliveryTime")}
+              </div>
               <p className="text-muted-foreground text-sm">{t("process.deliveryDescription")}</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-card">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">{t("faq.title")}</h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">{t("faq.subtitle")}</p>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {[
+              { question: t("faq.question1"), answer: t("faq.answer1") },
+              { question: t("faq.question2"), answer: t("faq.answer2") },
+              { question: t("faq.question3"), answer: t("faq.answer3") },
+              { question: t("faq.question4"), answer: t("faq.answer4") },
+              { question: t("faq.question5"), answer: t("faq.answer5") },
+              { question: t("faq.question6"), answer: t("faq.answer6") },
+              { question: t("faq.question7"), answer: t("faq.answer7") },
+              { question: t("faq.question8"), answer: t("faq.answer8") },
+            ].map((faq, index) => (
+              <Card key={index} className="border-0 shadow-sm">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
+                >
+                  <h3 className="font-semibold text-base sm:text-lg text-card-foreground pr-4">{faq.question}</h3>
+                  <ChevronDown
+                    className={`h-5 w-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${
+                      openFaq === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+              {t("contactInfo.title")}
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              {t("contactInfo.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="p-6 text-center border-0 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary font-bold">📞</span>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">{t("contactInfo.phone")}</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">{t("contactInfo.phoneNumber")}</p>
+            </Card>
+
+            <Card className="p-6 text-center border-0 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary font-bold">✉️</span>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">{t("contactInfo.email")}</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">{t("contactInfo.emailAddress")}</p>
+            </Card>
+
+            <Card className="p-6 text-center border-0 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary font-bold">🕒</span>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">{t("contactInfo.hours")}</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">{t("contactInfo.hoursDetails")}</p>
+            </Card>
+
+            <Card className="p-6 text-center border-0 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary font-bold">📍</span>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">{t("contactInfo.location")}</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">{t("contactInfo.locationDetails")}</p>
+            </Card>
+
+            <Card className="p-6 text-center border-0 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <span className="text-primary font-bold">⚡</span>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">{t("contactInfo.response")}</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">{t("contactInfo.responseDetails")}</p>
+            </Card>
           </div>
         </div>
       </section>
@@ -662,23 +990,35 @@ export default function Home() {
             <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 text-pretty px-4">
               {t("contact.subtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Button
                 size="lg"
                 onClick={openQuoteModal}
-                className="rounded-full px-8 py-6 text-lg group w-full sm:w-auto"
+                className="rounded-full px-8 py-6 text-lg group w-full sm:w-auto bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary"
               >
-                {t("contact.getFreeQuote")}
+                {t("enhancedCTA.primary")}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8 py-6 text-lg bg-transparent w-full sm:w-auto"
-                onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
+                className="rounded-full px-8 py-6 text-lg bg-transparent w-full sm:w-auto border-2 hover:bg-primary/5"
+                onClick={() => (window.location.href = "/portfolio")}
               >
-                {t("contact.viewPortfolio")}
+                {t("enhancedCTA.portfolio")}
               </Button>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
+              <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium">
+                <span>⏰</span>
+                {t("hero.limitedTimeOffer")}
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-600 dark:text-green-400 font-medium">
+                <span>✅</span>
+                {t("enhancedCTA.guarantee")}
+              </div>
             </div>
           </div>
         </div>

@@ -87,7 +87,7 @@ export default function Portfolio() {
               <Link href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
                 About
               </Link>
-              <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
                 Services
               </Link>
               <Link href="/portfolio" className="text-foreground font-medium">
