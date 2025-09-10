@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, ExternalLink, Calendar, Tag } from "lucide-react"
+import { ExternalLink, Calendar, Tag, Home, ChevronRight } from "lucide-react"
 import Link from "next/link"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Portfolio() {
   const projects = [
@@ -86,27 +87,42 @@ export default function Portfolio() {
               <Link href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
                 About
               </Link>
+              <Link href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
+                Services
+              </Link>
               <Link href="/portfolio" className="text-foreground font-medium">
                 Portfolio
-              </Link>
-              <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-                Services
               </Link>
               <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
                 Contact
               </Link>
+              <ThemeToggle />
+            </div>
+            {/* Mobile theme toggle */}
+            <div className="md:hidden">
+              <ThemeToggle />
             </div>
           </div>
         </div>
       </nav>
 
+      {/* Breadcrumb navigation */}
+      <div className="bg-muted/30 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-3">
+          <nav className="flex items-center space-x-2 text-sm">
+            <Link href="/" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+              <Home className="h-4 w-4 mr-1" />
+              Home
+            </Link>
+            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            <span className="text-foreground font-medium">Portfolio</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-card/30 to-background overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 group">
-            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Link>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">Portfolio</h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
             Explore our collection of 3D printing and CAD design projects, showcasing precision engineering and creative
