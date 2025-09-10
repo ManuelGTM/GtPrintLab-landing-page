@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ExternalLink, Calendar, Tag, Home, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ExternalLink, Calendar, Tag, Home, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Portfolio() {
   const projects = [
@@ -11,7 +11,8 @@ export default function Portfolio() {
       title: "Mechanical Prototype",
       category: "3D Printing",
       date: "2024",
-      description: "Complex mechanical prototype with moving parts and precision gears for automotive testing.",
+      description:
+        "Complex mechanical prototype with moving parts and precision gears for automotive testing.",
       image: "/3d-printed-mechanical-prototype-with-gears-and-mov.jpg",
       tags: ["Functional Testing", "Automotive", "Precision Parts"],
       details:
@@ -22,7 +23,8 @@ export default function Portfolio() {
       title: "Architectural Scale Model",
       category: "CAD Design",
       date: "2024",
-      description: "Detailed architectural model for urban development presentation with removable sections.",
+      description:
+        "Detailed architectural model for urban development presentation with removable sections.",
       image: "/custom-architectural-model-3d-printed-building-des.jpg",
       tags: ["Architecture", "Scale Modeling", "Presentation"],
       details:
@@ -33,7 +35,8 @@ export default function Portfolio() {
       title: "Consumer Electronics Enclosure",
       category: "Product Design",
       date: "2024",
-      description: "Sleek product enclosure design for consumer electronics with integrated cooling vents.",
+      description:
+        "Sleek product enclosure design for consumer electronics with integrated cooling vents.",
       image: "/custom-product-design-3d-printed-consumer-electron.jpg",
       tags: ["Product Design", "Electronics", "Ergonomics"],
       details:
@@ -44,7 +47,8 @@ export default function Portfolio() {
       title: "Manufacturing Jigs & Tools",
       category: "Custom Solutions",
       date: "2024",
-      description: "Custom manufacturing tools and jigs for improved production efficiency and quality control.",
+      description:
+        "Custom manufacturing tools and jigs for improved production efficiency and quality control.",
       image: "/3d-printed-custom-tools-and-jigs-manufacturing.jpg",
       tags: ["Manufacturing", "Quality Control", "Efficiency"],
       details:
@@ -55,7 +59,8 @@ export default function Portfolio() {
       title: "Artistic Sculpture",
       category: "Creative Design",
       date: "2024",
-      description: "Complex geometric sculpture combining artistic vision with technical 3D printing capabilities.",
+      description:
+        "Complex geometric sculpture combining artistic vision with technical 3D printing capabilities.",
       image: "/artistic-3d-printed-sculpture-decorative-object.jpg",
       tags: ["Art", "Geometric Design", "Creative"],
       details:
@@ -66,67 +71,27 @@ export default function Portfolio() {
       title: "Automotive Replacement Parts",
       category: "Reverse Engineering",
       date: "2024",
-      description: "Reverse-engineered automotive components for classic car restoration projects.",
+      description:
+        "Reverse-engineered automotive components for classic car restoration projects.",
       image: "/replacement-parts-3d-printed-automotive-components.jpg",
       tags: ["Reverse Engineering", "Automotive", "Restoration"],
       details:
         "Precise recreation of discontinued automotive parts through reverse engineering and 3D scanning. Each part maintains original specifications while improving durability.",
     },
-  ]
+  ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="font-bold text-xl text-primary">
-              Gt Print Lab
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
-                About
-              </Link>
-              <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-                Services
-              </Link>
-              <Link href="/portfolio" className="text-foreground font-medium">
-                Portfolio
-              </Link>
-              <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                Contact
-              </Link>
-              <ThemeToggle />
-            </div>
-            {/* Mobile theme toggle */}
-            <div className="md:hidden">
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Breadcrumb navigation */}
-      <div className="bg-muted/30 border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-3">
-          <nav className="flex items-center space-x-2 text-sm">
-            <Link href="/" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
-              <Home className="h-4 w-4 mr-1" />
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <span className="text-foreground font-medium">Portfolio</span>
-          </nav>
-        </div>
-      </div>
-
+    <>
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-card/30 to-background overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">Portfolio</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+            Portfolio
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            Explore our collection of 3D printing and CAD design projects, showcasing precision engineering and creative
-            solutions across various industries.
+            Explore our collection of 3D printing and CAD design projects,
+            showcasing precision engineering and creative solutions across
+            various industries.
           </p>
         </div>
 
@@ -166,11 +131,18 @@ export default function Portfolio() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{project.details}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                    {project.details}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-muted/50 text-muted-foreground text-xs rounded-full">
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-muted/50 text-muted-foreground text-xs rounded-full"
+                      >
                         {tag}
                       </span>
                     ))}
@@ -193,41 +165,23 @@ export default function Portfolio() {
             Have a Project in Mind?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 text-pretty">
-            Let's discuss how we can bring your ideas to life with precision 3D printing and expert CAD design.
+            Let's discuss how we can bring your ideas to life with precision 3D
+            printing and expert CAD design.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="rounded-full px-8 py-6 text-lg">
               Start Your Project
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 py-6 text-lg bg-transparent">
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 py-6 text-lg bg-transparent"
+            >
               <Link href="/services">View Services</Link>
             </Button>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-12 bg-background">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="font-bold text-xl text-primary mb-4 md:mb-0">Gt Print Lab</div>
-            <div className="flex space-x-6 text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">
-                LinkedIn
-              </a>
-              <a href="#" className="hover:text-foreground transition-colors">
-                Instagram
-              </a>
-              <a href="#" className="hover:text-foreground transition-colors">
-                Contact
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-            <p>&copy; 2024 Gt Print Lab. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
+    </>
+  );
 }

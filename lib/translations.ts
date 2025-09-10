@@ -29,7 +29,8 @@ export const translations = {
     },
     services: {
       title: "Services",
-      subtitle: "Complete 3D printing and design solutions for all your project needs",
+      subtitle:
+        "Complete 3D printing and design solutions for all your project needs",
       printing: {
         title: "3D Printing Services",
         description:
@@ -47,27 +48,38 @@ export const translations = {
       },
       cad: {
         title: "CAD Design",
-        description: "Professional computer-aided design services from concept sketches to production-ready models.",
+        description:
+          "Professional computer-aided design services from concept sketches to production-ready models.",
         productDesign: "Product design & modeling",
         technicalDrawings: "Technical drawings",
         designOptimization: "Design optimization",
         fileFormatConversion: "File format conversion",
-        features: ["Product design & modeling", "Technical drawings", "Design optimization", "File format conversion"],
+        features: [
+          "Product design & modeling",
+          "Technical drawings",
+          "Design optimization",
+          "File format conversion",
+        ],
       },
     },
     portfolio: {
       title: "Portfolio",
-      subtitle: "Explore a selection of projects showcasing precision 3D printing and innovative CAD design solutions",
+      subtitle:
+        "Explore a selection of projects showcasing precision 3D printing and innovative CAD design solutions",
       mechanicalPrototype: "Mechanical Prototype",
-      mechanicalPrototypeDetails: "Complex mechanical parts with moving components",
+      mechanicalPrototypeDetails:
+        "Complex mechanical parts with moving components",
       architecturalModel: "Architectural Model",
-      architecturalModelDetails: "Detailed scale model for architectural visualization",
+      architecturalModelDetails:
+        "Detailed scale model for architectural visualization",
       productEnclosure: "Product Enclosure",
-      productEnclosureDetails: "Custom electronics housing with precise tolerances",
+      productEnclosureDetails:
+        "Custom electronics housing with precise tolerances",
       customTooling: "Custom Tooling",
       customToolingDetails: "Specialized manufacturing tools and jigs",
       artisticCreation: "Artistic Creation",
-      artisticCreationDetails: "Complex geometric sculpture with intricate details",
+      artisticCreationDetails:
+        "Complex geometric sculpture with intricate details",
       replacementParts: "Replacement Parts",
       replacementPartsDetails: "Automotive components and restoration parts",
     },
@@ -75,25 +87,42 @@ export const translations = {
       title: "How It Works",
       subtitle: "Simple process from concept to finished product",
       consultation: "Consultation",
-      consultationDescription: "Discuss your project requirements and specifications (Same day response)",
+      consultationDescription:
+        "Discuss your project requirements and specifications (Same day response)",
       consultationTime: "Same Day",
       design: "Design",
-      designDescription: "Create or refine CAD models for optimal printing (2-3 days)",
+      designDescription:
+        "Create or refine CAD models for optimal printing (2-3 days)",
       designTime: "2-3 Days",
       production: "Production",
-      productionDescription: "High-quality 3D printing with precision and care (1-5 days)",
+      productionDescription:
+        "High-quality 3D printing with precision and care (1-5 days)",
       productionTime: "1-5 Days",
       delivery: "Delivery",
-      deliveryDescription: "Finished products with post-processing if needed (24hrs)",
+      deliveryDescription:
+        "Finished products with post-processing if needed (24hrs)",
       deliveryTime: "24 Hours",
       steps: [
         {
           title: "Consultation",
-          description: "Discuss your project requirements and specifications (Same day response)",
+          description:
+            "Discuss your project requirements and specifications (Same day response)",
         },
-        { title: "Design", description: "Create or refine CAD models for optimal printing (2-3 days)" },
-        { title: "Production", description: "High-quality 3D printing with precision and care (1-5 days)" },
-        { title: "Delivery", description: "Finished products with post-processing if needed (24hrs)" },
+        {
+          title: "Design",
+          description:
+            "Create or refine CAD models for optimal printing (2-3 days)",
+        },
+        {
+          title: "Production",
+          description:
+            "High-quality 3D printing with precision and care (1-5 days)",
+        },
+        {
+          title: "Delivery",
+          description:
+            "Finished products with post-processing if needed (24hrs)",
+        },
       ],
     },
     contact: {
@@ -111,7 +140,8 @@ export const translations = {
     },
     form: {
       title: "Get Your Free Quote",
-      subtitle: "Tell us about your project and we'll provide a detailed quote within 24 hours",
+      subtitle:
+        "Tell us about your project and we'll provide a detailed quote within 24 hours",
       firstName: "First Name",
       lastName: "Last Name",
       email: "Email Address",
@@ -125,7 +155,8 @@ export const translations = {
     },
     socialProof: {
       title: "Trusted by Industry Leaders",
-      subtitle: "Join hundreds of satisfied clients who trust us with their most important projects",
+      subtitle:
+        "Join hundreds of satisfied clients who trust us with their most important projects",
       projectsCompleted: "Projects Completed",
       projectsCompletedNumber: "500+",
       clientSatisfaction: "Client Satisfaction",
@@ -149,7 +180,8 @@ export const translations = {
     },
     serviceDetails: {
       title: "Detailed Service Information",
-      subtitle: "Everything you need to know about our services, pricing, and capabilities",
+      subtitle:
+        "Everything you need to know about our services, pricing, and capabilities",
       printing: {
         title: "3D Printing Services",
         pricing: "Starting from $15/hour",
@@ -158,7 +190,8 @@ export const translations = {
         layerHeight: "0.1-0.3mm layer height",
         buildVolume: "Up to 300x300x400mm",
         postProcessing: "Sanding, painting, assembly available",
-        applications: "Prototypes, functional parts, architectural models, custom tools",
+        applications:
+          "Prototypes, functional parts, architectural models, custom tools",
       },
       cad: {
         title: "CAD Design Services",
@@ -168,12 +201,14 @@ export const translations = {
         formats: "STL, STEP, IGES, OBJ, 3MF",
         revisions: "Up to 3 free revisions included",
         documentation: "Technical drawings and specifications",
-        applications: "Product design, reverse engineering, optimization, prototyping",
+        applications:
+          "Product design, reverse engineering, optimization, prototyping",
       },
     },
     faq: {
       title: "Frequently Asked Questions",
-      subtitle: "Get answers to common questions about our 3D printing and CAD design services",
+      subtitle:
+        "Get answers to common questions about our 3D printing and CAD design services",
       question1: "What file formats do you accept?",
       answer1:
         "We accept STL, OBJ, 3MF, STEP, and IGES files. If you have a different format, contact us and we'll help convert it.",
@@ -201,7 +236,8 @@ export const translations = {
     },
     contactInfo: {
       title: "Get in Touch",
-      subtitle: "Multiple ways to reach us for your 3D printing and CAD design needs",
+      subtitle:
+        "Multiple ways to reach us for your 3D printing and CAD design needs",
       phone: "Phone",
       phoneNumber: "+1 (555) 123-4567",
       email: "Email",
@@ -267,7 +303,8 @@ export const translations = {
     },
     services: {
       title: "Servicios",
-      subtitle: "Soluciones completas de impresión 3D y diseño para todas las necesidades de tu proyecto",
+      subtitle:
+        "Soluciones completas de impresión 3D y diseño para todas las necesidades de tu proyecto",
       printing: {
         title: "Servicios de Impresión 3D",
         description:
@@ -304,46 +341,70 @@ export const translations = {
       subtitle:
         "Explora una selección de proyectos que muestran impresión 3D de precisión y soluciones innovadoras de diseño CAD",
       mechanicalPrototype: "Prototipo Mecánico",
-      mechanicalPrototypeDetails: "Piezas mecánicas complejas con componentes móviles",
+      mechanicalPrototypeDetails:
+        "Piezas mecánicas complejas con componentes móviles",
       architecturalModel: "Modelo Arquitectónico",
-      architecturalModelDetails: "Modelo a escala detallado para visualización arquitectónica",
+      architecturalModelDetails:
+        "Modelo a escala detallado para visualización arquitectónica",
       productEnclosure: "Carcasa de Producto",
-      productEnclosureDetails: "Carcasa de electrónicos personalizada con tolerancias precisas",
+      productEnclosureDetails:
+        "Carcasa de electrónicos personalizada con tolerancias precisas",
       customTooling: "Herramientas Personalizadas",
-      customToolingDetails: "Herramientas de manufactura especializadas y plantillas",
+      customToolingDetails:
+        "Herramientas de manufactura especializadas y plantillas",
       artisticCreation: "Creación Artística",
-      artisticCreationDetails: "Escultura geométrica compleja con detalles intrincados",
+      artisticCreationDetails:
+        "Escultura geométrica compleja con detalles intrincados",
       replacementParts: "Piezas de Repuesto",
-      replacementPartsDetails: "Componentes automotrices y piezas de restauración",
+      replacementPartsDetails:
+        "Componentes automotrices y piezas de restauración",
     },
     process: {
       title: "Cómo Funciona",
       subtitle: "Proceso simple del concepto al producto terminado",
       consultation: "Consulta",
-      consultationDescription: "Discutir los requisitos y especificaciones de tu proyecto (Respuesta el mismo día)",
+      consultationDescription:
+        "Discutir los requisitos y especificaciones de tu proyecto (Respuesta el mismo día)",
       consultationTime: "Mismo Día",
       design: "Diseño",
-      designDescription: "Crear o refinar modelos CAD para impresión óptima (2-3 días)",
+      designDescription:
+        "Crear o refinar modelos CAD para impresión óptima (2-3 días)",
       designTime: "2-3 Días",
       production: "Producción",
-      productionDescription: "Impresión 3D de alta calidad con precisión y cuidado (1-5 días)",
+      productionDescription:
+        "Impresión 3D de alta calidad con precisión y cuidado (1-5 días)",
       productionTime: "1-5 Días",
       delivery: "Entrega",
-      deliveryDescription: "Productos terminados con post-procesamiento si es necesario (24hrs)",
+      deliveryDescription:
+        "Productos terminados con post-procesamiento si es necesario (24hrs)",
       deliveryTime: "24 Horas",
       steps: [
         {
           title: "Consulta",
-          description: "Discutir los requisitos y especificaciones de tu proyecto (Respuesta el mismo día)",
+          description:
+            "Discutir los requisitos y especificaciones de tu proyecto (Respuesta el mismo día)",
         },
-        { title: "Diseño", description: "Crear o refinar modelos CAD para impresión óptima (2-3 días)" },
-        { title: "Producción", description: "Impresión 3D de alta calidad con precisión y cuidado (1-5 días)" },
-        { title: "Entrega", description: "Productos terminados con post-procesamiento si es necesario (24hrs)" },
+        {
+          title: "Diseño",
+          description:
+            "Crear o refinar modelos CAD para impresión óptima (2-3 días)",
+        },
+        {
+          title: "Producción",
+          description:
+            "Impresión 3D de alta calidad con precisión y cuidado (1-5 días)",
+        },
+        {
+          title: "Entrega",
+          description:
+            "Productos terminados con post-procesamiento si es necesario (24hrs)",
+        },
       ],
     },
     contact: {
       title: "¿Listo para Comenzar tu Proyecto?",
-      subtitle: "Ponte en contacto hoy y demos vida a tus ideas con impresión 3D de precisión y diseño CAD experto",
+      subtitle:
+        "Ponte en contacto hoy y demos vida a tus ideas con impresión 3D de precisión y diseño CAD experto",
       getFreeQuote: "Cotización Gratuita",
       viewPortfolio: "Ver Portafolio",
     },
@@ -355,7 +416,8 @@ export const translations = {
     },
     form: {
       title: "Obtén tu Cotización Gratuita",
-      subtitle: "Cuéntanos sobre tu proyecto y te proporcionaremos una cotización detallada en 24 horas",
+      subtitle:
+        "Cuéntanos sobre tu proyecto y te proporcionaremos una cotización detallada en 24 horas",
       firstName: "Nombre",
       lastName: "Apellido",
       email: "Correo Electrónico",
@@ -369,7 +431,8 @@ export const translations = {
     },
     socialProof: {
       title: "Confiado por Líderes de la Industria",
-      subtitle: "Únete a cientos de clientes satisfechos que confían en nosotros con sus proyectos más importantes",
+      subtitle:
+        "Únete a cientos de clientes satisfechos que confían en nosotros con sus proyectos más importantes",
       projectsCompleted: "Proyectos Completados",
       projectsCompletedNumber: "500+",
       clientSatisfaction: "Satisfacción del Cliente",
@@ -393,7 +456,8 @@ export const translations = {
     },
     serviceDetails: {
       title: "Información Detallada de Servicios",
-      subtitle: "Todo lo que necesitas saber sobre nuestros servicios, precios y capacidades",
+      subtitle:
+        "Todo lo que necesitas saber sobre nuestros servicios, precios y capacidades",
       printing: {
         title: "Servicios de Impresión 3D",
         pricing: "Desde $15/hora",
@@ -402,7 +466,8 @@ export const translations = {
         layerHeight: "Altura de capa 0.1-0.3mm",
         buildVolume: "Hasta 300x300x400mm",
         postProcessing: "Lijado, pintura, ensamblaje disponible",
-        applications: "Prototipos, piezas funcionales, modelos arquitectónicos, herramientas personalizadas",
+        applications:
+          "Prototipos, piezas funcionales, modelos arquitectónicos, herramientas personalizadas",
       },
       cad: {
         title: "Servicios de Diseño CAD",
@@ -412,12 +477,14 @@ export const translations = {
         formats: "STL, STEP, IGES, OBJ, 3MF",
         revisions: "Hasta 3 revisiones gratuitas incluidas",
         documentation: "Dibujos técnicos y especificaciones",
-        applications: "Diseño de productos, ingeniería inversa, optimización, prototipado",
+        applications:
+          "Diseño de productos, ingeniería inversa, optimización, prototipado",
       },
     },
     faq: {
       title: "Preguntas Frecuentes",
-      subtitle: "Obtén respuestas a preguntas comunes sobre nuestros servicios de impresión 3D y diseño CAD",
+      subtitle:
+        "Obtén respuestas a preguntas comunes sobre nuestros servicios de impresión 3D y diseño CAD",
       question1: "¿Qué formatos de archivo aceptan?",
       answer1:
         "Aceptamos archivos STL, OBJ, 3MF, STEP e IGES. Si tienes un formato diferente, contáctanos y te ayudaremos a convertirlo.",
@@ -445,7 +512,8 @@ export const translations = {
     },
     contactInfo: {
       title: "Ponte en Contacto",
-      subtitle: "Múltiples formas de contactarnos para tus necesidades de impresión 3D y diseño CAD",
+      subtitle:
+        "Múltiples formas de contactarnos para tus necesidades de impresión 3D y diseño CAD",
       phone: "Teléfono",
       phoneNumber: "+1 (555) 123-4567",
       email: "Correo",
@@ -481,18 +549,18 @@ export const translations = {
       portfolio: "Ve 500+ Proyectos Exitosos",
     },
   },
-}
+};
 
-export type Language = keyof typeof translations
-export type TranslationKey = keyof typeof translations.en
+export type Language = keyof typeof translations;
+export type TranslationKey = keyof typeof translations.en;
 
-export function getTranslation(lang: Language, key: string): string {
-  const keys = key.split(".")
-  let value: any = translations[lang]
+export const getTranslation = (lang: Language, key: string): string => {
+  const keys = key.split(".");
+  let value: any = translations[lang];
 
   for (const k of keys) {
-    value = value?.[k]
+    value = value?.[k];
   }
 
-  return value || key
-}
+  return value || key;
+};
