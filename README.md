@@ -1,4 +1,4 @@
-# Gt Print Lab landing page
+# Industrial design landing page
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
